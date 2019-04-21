@@ -75,12 +75,12 @@ class ProcessorUtil {
     }
 
     /**
-     * 判断是否是合法的字段
+     * 判断是否是合法(非final,非静态)的字段
      *
      * @param jcTree 语法树节点
      * @return 是否是合法字段
      */
-    private static boolean isValidField(JCTree jcTree) {
+    public static boolean isValidField(JCTree jcTree) {
         if (jcTree.getKind().equals(JCTree.Kind.VARIABLE)) {
             JCTree.JCVariableDecl jcVariable = (JCTree.JCVariableDecl) jcTree;
 
