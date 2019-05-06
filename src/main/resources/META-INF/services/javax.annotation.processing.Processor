@@ -1,2 +1,2 @@
-top.dannystone.deepcopier.processor.DataProcessor
-top.dannystone.deepcopier.processor.DeepCopierProcessor
+top.dannystone.deepcopier.compile.processor.DataProcessor
+top.dannystone.deepcopier.compile.processor.DeepCopierProcessor

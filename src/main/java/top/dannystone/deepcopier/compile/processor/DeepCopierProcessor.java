@@ -1,15 +1,12 @@
-package top.dannystone.deepcopier.processor;
+package top.dannystone.deepcopier.compile.processor;
 
 import com.sun.tools.javac.code.Flags;
-import com.sun.tools.javac.code.Symbol;
-import com.sun.tools.javac.code.Type;
 import com.sun.tools.javac.tree.JCTree;
 import com.sun.tools.javac.tree.TreeTranslator;
 import com.sun.tools.javac.util.List;
 import com.sun.tools.javac.util.ListBuffer;
 import com.sun.tools.javac.util.Name;
 import com.sun.tools.javac.util.StringUtils;
-import top.dannystone.deepcopier.annotation.DeepCopier;
 
 import javax.annotation.processing.RoundEnvironment;
 import javax.annotation.processing.SupportedAnnotationTypes;
@@ -21,8 +18,8 @@ import javax.tools.Diagnostic;
 import java.util.Set;
 
 import static com.sun.org.apache.bcel.internal.Constants.CONSTRUCTOR_NAME;
-import static top.dannystone.deepcopier.processor.ProcessorUtil.THIS;
-import static top.dannystone.deepcopier.processor.ProcessorUtil.isValidField;
+import static top.dannystone.deepcopier.compile.processor.ProcessorUtil.THIS;
+import static top.dannystone.deepcopier.compile.processor.ProcessorUtil.isValidField;
 
 /**
  * Created with IntelliJ IDEA.
@@ -43,7 +40,7 @@ public class DeepCopierProcessor extends BaseProcessor {
     @Override
     public boolean process(Set<? extends TypeElement> annotations, RoundEnvironment roundEnv) {
         //首先获取被DeepCopier注解标记的元素
-        Set<? extends Element> set = roundEnv.getElementsAnnotatedWith(DeepCopier.class);
+        Set<? extends Element> set = roundEnv.getElementsAnnotatedWith(top.dannystone.deepcopier.compile.annotation.DeepCopier.class);
         set.stream().forEach(element -> {
             JCTree jcTree = trees.getTree(element);
 

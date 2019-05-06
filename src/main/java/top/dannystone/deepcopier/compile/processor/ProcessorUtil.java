@@ -1,4 +1,4 @@
-package top.dannystone.deepcopier.processor;
+package top.dannystone.deepcopier.compile.processor;
 
 
 import com.sun.tools.javac.code.Flags;

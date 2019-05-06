@@ -1,4 +1,4 @@
-import top.dannystone.deepcopier.annotation.DeepCopier;
+package top.dannystone.deepcopier.runtime;
 
 /**
  * Created with IntelliJ IDEA.
@@ -12,6 +12,16 @@ public class User {
     private int age;
     private String name;
     private boolean ace;
+
+    public ClassRoom getClassRoom() {
+        return classRoom;
+    }
+
+    public void setClassRoom(ClassRoom classRoom) {
+        this.classRoom = classRoom;
+    }
+
+    private ClassRoom classRoom;
 
     public User() {
 
@@ -31,6 +41,18 @@ public class User {
 
     public void setAce(boolean ace) {
         this.ace = ace;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+
+    public String toString(){
+        return name+","+age+","+classRoom.getClassName();
     }
 }
 

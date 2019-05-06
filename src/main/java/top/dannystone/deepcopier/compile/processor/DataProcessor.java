@@ -1,4 +1,4 @@
-package top.dannystone.deepcopier.processor;
+package top.dannystone.deepcopier.compile.processor;
 
 import com.sun.tools.javac.code.Flags;
 import com.sun.tools.javac.code.TypeTag;
@@ -18,7 +18,7 @@ import javax.lang.model.element.TypeElement;
 import javax.tools.Diagnostic;
 import java.util.Set;
 
-import static top.dannystone.deepcopier.processor.ProcessorUtil.*;
+import static top.dannystone.deepcopier.compile.processor.ProcessorUtil.*;
 
 /**
  * Created with IntelliJ IDEA.
