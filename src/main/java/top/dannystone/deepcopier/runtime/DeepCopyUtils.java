@@ -10,7 +10,7 @@ import java.util.Set;
 
 /**
  * Created with IntelliJ IDEA.
- * Description:
+ * Description: whether field is copyable judged by the filed has getter setter method
  *
  * @author: daniel
  * @creed: focus on the domain !
