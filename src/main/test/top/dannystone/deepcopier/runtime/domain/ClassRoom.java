@@ -1,4 +1,4 @@
-package top.dannystone.deepcopier.runtime;
+package top.dannystone.deepcopier.runtime.domain;
 
 /**
  * Created with IntelliJ IDEA.

@@ -3,6 +3,8 @@ package top.dannystone.deepcopier.runtime;
 
 import junit.framework.TestCase;
 import org.junit.Test;
+import top.dannystone.deepcopier.runtime.domain.ClassRoom;
+import top.dannystone.deepcopier.runtime.domain.Student;
 
 /**
  * Created with IntelliJ IDEA.
