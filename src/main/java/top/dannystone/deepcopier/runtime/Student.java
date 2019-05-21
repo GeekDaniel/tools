@@ -8,10 +8,10 @@ package top.dannystone.deepcopier.runtime;
  * @creed: focus on the domain !
  * @Time: 2019/4/17 8:30 AM
  */
-public class User {
-    private int age;
-    private String name;
+public class Student extends Person{
+
     private boolean ace;
+    private ClassRoom classRoom;
 
     public ClassRoom getClassRoom() {
         return classRoom;
@@ -21,18 +21,8 @@ public class User {
         this.classRoom = classRoom;
     }
 
-    private ClassRoom classRoom;
+    public Student() {
 
-    public User() {
-
-    }
-
-    public int getAge() {
-        return age;
-    }
-
-    public void setAge(int age) {
-        this.age = age;
     }
 
     public boolean isAce() {
@@ -43,16 +33,16 @@ public class User {
         this.ace = ace;
     }
 
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
+    @Override
     public String toString(){
-        return name+","+age+","+classRoom.getClassName();
+        return this.getName()+","+this.getAge()+","+classRoom.getClassName();
+    }
+
+    public static void main(String[] args){
+        Student student = new Student();
+
+        System.out.println(student.getClass().getSuperclass().getName());
+
     }
 }
 
