@@ -76,21 +76,6 @@ public class DeepCopyUtils {
 
     }
 
-    public static void main(String[] args) {
-        Student student = new Student();
-        student.setAce(true);
-        student.setAge(12);
-        student.setName("daniel");
-        ClassRoom classroom = new ClassRoom();
-        classroom.setClassName("class1");
-        student.setClassRoom(classroom);
-        student.setAce(true);
-        Student studentCopy = DeepCopyUtils.deepCopy(student);
-        System.out.println(studentCopy);
-        System.out.println("properties equal and ref not equal : "+(studentCopy.getClassRoom()!= student.getClassRoom()&& studentCopy.getClassRoom().getClassName().equals(student.getClassRoom().getClassName())));
-    }
-
-
     public static class FieldCopyContext {
         private LinkedList<Triple<Field,Method,Method>> fieldGetterSetters;
 
