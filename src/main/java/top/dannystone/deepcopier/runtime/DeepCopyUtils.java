@@ -4,7 +4,9 @@ package top.dannystone.deepcopier.runtime;
 import java.lang.reflect.Field;
 import java.lang.reflect.InvocationTargetException;
 import java.lang.reflect.Method;
+import java.util.HashMap;
 import java.util.LinkedList;
+import java.util.Map;
 
 /**
  * Created with IntelliJ IDEA.
@@ -21,7 +23,24 @@ public class DeepCopyUtils {
     public static final String BOOLEAN_GETTER_PREFIX = "is";
     public static final String OBJECT_CLASS_NAME = "java.lang.Object";
 
-    public static <T> T deepCopy(T t) {
+    public static final Map<String, FieldCopyContext> FIELD_COPY_CONTEXT_CACHE = new HashMap<>();
+
+
+    public static <T> T deepCopy(T t){
+        return deepCopy0(t, false);
+    }
+
+    /**
+     * 如果你想在高频次deepCopy的情况下，以一定的内存减少反射的所花的时间，可以考虑使用此方法
+     * @param t
+     * @param <T>
+     * @return
+     */
+    public static <T> T deepCopyWithCache(T t){
+        return deepCopy0(t, true);
+    }
+
+    private static <T> T deepCopy0(T t,boolean cache) {
         T copy = null;
         try {
             copy = (T) t.getClass().newInstance();
@@ -31,7 +50,7 @@ public class DeepCopyUtils {
             e.printStackTrace();
         }
         Class<?> aClass = t.getClass();
-        FieldCopyContext fieldCopyContext = getClassContext(aClass);
+        FieldCopyContext fieldCopyContext = getFieldCopyContext(aClass,cache);
         LinkedList<Triple<Field, Method, Method>> fieldGetterSetters = fieldCopyContext.getFieldGetterSetters();
 
         for (Triple<Field,Method,Method> fieldGetterSetter: fieldGetterSetters) {
@@ -43,7 +62,7 @@ public class DeepCopyUtils {
                     Object valueToAssign = value;
                     //简单类型或者null就不需要copy了
                     if (!isPrimitiveOrString(field)&&valueToAssign!=null) {
-                        valueToAssign = deepCopy(value);
+                        valueToAssign = deepCopy0(value,cache);
                     }
                     fieldGetterSetter.getRight().invoke(copy, new Object[]{valueToAssign});
                 } catch (InvocationTargetException e) {
@@ -128,7 +147,21 @@ public class DeepCopyUtils {
         }
     }
 
-    private static FieldCopyContext getClassContext(Class clazz) {
+    private static FieldCopyContext getFieldCopyContext(Class clazz, boolean cache) {
+        if (cache) {
+            if (FIELD_COPY_CONTEXT_CACHE.get(clazz.getName()) != null) {
+                return FIELD_COPY_CONTEXT_CACHE.get(clazz.getName());
+            }
+
+            FieldCopyContext fieldCopyContext0 = getFieldCopyContext0(clazz);
+            FIELD_COPY_CONTEXT_CACHE.put(clazz.getName(), fieldCopyContext0);
+            return fieldCopyContext0;
+        }
+
+        return getFieldCopyContext0(clazz);
+    }
+
+    private static FieldCopyContext getFieldCopyContext0(Class clazz) {
         LinkedList<Class> classHierachy = getClassHierachy(clazz);
 
         LinkedList<Triple<Field, Method, Method>> fieldGetterSetters = new LinkedList<>();
@@ -155,7 +188,6 @@ public class DeepCopyUtils {
         });
 
         return new FieldCopyContext(fieldGetterSetters);
-
     }
 
 

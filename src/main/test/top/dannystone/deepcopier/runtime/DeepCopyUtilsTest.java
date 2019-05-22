@@ -15,7 +15,7 @@ import top.dannystone.deepcopier.runtime.domain.Student;
  * @creed: focus on the domain !
  * @Time: 2019/5/22 12:16 AM
  */
-public class DeepCopyUtilsTest extends TestCase {
+public class DeepCopyUtilsTest{
 
 //    @Test
 //    public void testDeepCopy() {
@@ -52,13 +52,13 @@ public class DeepCopyUtilsTest extends TestCase {
         ClassRoom classroom = new ClassRoom();
         classroom.setClassName("classRoom1");
         student.setClassRoom(classroom);
-        int times = 100;
-        long start = System.currentTimeMillis();
-        for (int i = 0; i < times; i++) {
-            Student studentCopy = DeepCopyUtils.deepCopy(student);
-        }
-        long end = System.currentTimeMillis();
-         System.out.println(times +"times: deepCopy takes " + (end-start) +" ms .");
+        int times = 100000000;
+//        long start = System.currentTimeMillis();
+//        for (int i = 0; i < times; i++) {
+//            Student studentCopy = DeepCopyUtils.deepCopyWithCache(student);
+//        }
+//        long end = System.currentTimeMillis();
+//         System.out.println(times +" times: deepCopy takes " + (end-start) +" ms .");
 
         long start2 = System.currentTimeMillis();
         for (int i = 0; i < times; i++) {
@@ -66,9 +66,8 @@ public class DeepCopyUtilsTest extends TestCase {
             Student studentCopy = JSONObject.parseObject(s, Student.class);
         }
         long end2 = System.currentTimeMillis();
-        System.out.println(times +"times: deepCopy takes " + (end2-start2) +" ms .");
+        System.out.println(times +" times: toJSONString takes " + (end2-start2) +" ms .");
 
-        assertTrue(true);
 
     }
 
