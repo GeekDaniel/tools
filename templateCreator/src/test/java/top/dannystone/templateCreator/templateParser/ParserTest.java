@@ -22,10 +22,14 @@ public class ParserTest {
 
         List<Token> scan2 = Parser.tokenAnalyze(this.getClass().getClassLoader().getResource("./hierarchytest.org").getPath(),"*");
 
+        List<Token> scan3 = Parser.tokenAnalyze(this.getClass().getClassLoader().getResource("./hierarchytest.txt").getPath(),"\t");
+
         System.out.println(JSONObject.toJSONString(scan));
         System.out.println(JSONObject.toJSONString(scan2));
+        System.out.println(JSONObject.toJSONString(scan3));
 
         Assert.assertTrue(JSONObject.toJSONString(scan).equals(JSONObject.toJSONString(scan2)));
+        Assert.assertTrue(JSONObject.toJSONString(scan).equals(JSONObject.toJSONString(scan3)));
     }
 
     @Test
