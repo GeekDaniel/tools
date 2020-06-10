@@ -17,32 +17,31 @@ import top.dannystone.deepcopier.runtime.domain.Student;
  */
 public class DeepCopyUtilsTest{
 
-//    @Test
-//    public void testDeepCopy() {
-//        Student student = new Student();
-//        student.setAge(12);
-//        student.setName("daniel");
-//        student.setAce(true);
-//
-//        ClassRoom classroom = new ClassRoom();
-//        classroom.setClassName("classRoom1");
-//        student.setClassRoom(classroom);
-//        Student studentCopy = DeepCopyUtils.deepCopy(student);
-//
-//        //测试继承属性
-//        assertTrue(student.getAge() == studentCopy.getAge());
-//        assertTrue(student.isAce() == studentCopy.isAce());
-//        assertTrue(student.getName().equals(studentCopy.getName()));
-//
-//        //测试深复制
-//        assertTrue((studentCopy.getClassRoom() != student.getClassRoom() && studentCopy.getClassRoom().getClassName().equals(student.getClassRoom().getClassName())));
-//
-//
-//    }
+    @Test
+    public void testDeepCopy() {
+        Student student = new Student();
+        student.setAge(12);
+        student.setName("daniel");
+        student.setAce(true);
+
+        ClassRoom classroom = new ClassRoom();
+        classroom.setClassName("classRoom1");
+        student.setClassRoom(classroom);
+        Student studentCopy = DeepCopyUtils.deepCopy(student);
+
+        //测试继承属性
+        assert student.getAge() == studentCopy.getAge();
+        assert student.isAce() == studentCopy.isAce();
+        assert student.getName().equals(studentCopy.getName());
+
+        //测试深复制
+        assert (studentCopy.getClassRoom() != student.getClassRoom() && studentCopy.getClassRoom().getClassName().equals(student.getClassRoom().getClassName()));
+
+
+    }
 
     @Test
     public void performanceTest() {
-        //100次deepCopy  fastJson vs deepCopy
 
         Student student = new Student();
         student.setAge(12);
@@ -53,12 +52,12 @@ public class DeepCopyUtilsTest{
         classroom.setClassName("classRoom1");
         student.setClassRoom(classroom);
         int times = 100000000;
-//        long start = System.currentTimeMillis();
-//        for (int i = 0; i < times; i++) {
-//            Student studentCopy = DeepCopyUtils.deepCopyWithCache(student);
-//        }
-//        long end = System.currentTimeMillis();
-//         System.out.println(times +" times: deepCopy takes " + (end-start) +" ms .");
+        long start = System.currentTimeMillis();
+        for (int i = 0; i < times; i++) {
+            Student studentCopy = DeepCopyUtils.deepCopyWithCache(student);
+        }
+        long end = System.currentTimeMillis();
+         System.out.println(times +" times: deepCopy takes " + (end-start) +" ms .");
 
         long start2 = System.currentTimeMillis();
         for (int i = 0; i < times; i++) {
