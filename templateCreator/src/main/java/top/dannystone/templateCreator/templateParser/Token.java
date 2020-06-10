@@ -1,5 +1,6 @@
 package top.dannystone.templateCreator.templateParser;
 
+import lombok.AllArgsConstructor;
 import lombok.Data;
 
 /**
@@ -11,6 +12,7 @@ import lombok.Data;
  * @Time: 2020/6/10 3:03 PM
  */
 @Data
+@AllArgsConstructor
 public class Token {
     private String value;
     private int hierarchy;
