@@ -30,4 +30,13 @@ public class FileUtils {
 
         return false;
     }
+
+    public static boolean isDirectory(String fileName) {
+        if (fileName == null) {
+            return false;
+        }
+
+        return !isFile(fileName);
+
+    }
 }
