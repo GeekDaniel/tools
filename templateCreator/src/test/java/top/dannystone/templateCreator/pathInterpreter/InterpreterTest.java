@@ -23,7 +23,7 @@ public class InterpreterTest {
     public void getPaths() {
         List<Token> scan3 = Parser.tokenAnalyze(this.getClass().getClassLoader().getResource("./hierarchytest.txt").getPath(), "\t");
         List<Token> tokens = Parser.grammaAnalyze(scan3);
-        List<String> paths = Interpreter.getPaths(tokens);
+        List<String> paths = Interpreter.getPaths(tokens,null,"");
         System.out.println(paths);
 
     }

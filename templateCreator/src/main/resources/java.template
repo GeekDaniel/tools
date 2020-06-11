@@ -1,0 +1,12 @@
+package ${package};
+
+/**
+ * Created with IntelliJ IDEA.
+ * Description:
+ *
+ * @author: daniel
+ * @creed: keep it simple and stupid !
+ */
+public class ${className} {
+
+}
