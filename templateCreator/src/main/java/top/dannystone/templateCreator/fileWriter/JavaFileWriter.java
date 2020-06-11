@@ -18,7 +18,7 @@ public class JavaFileWriter {
     private static final String IDEA_JAVA_TEST_PACKAGE_ROOT = "src/test/java/";
     private static final String IDEA_JAVA_PACKAGE_ROOT = "src/main/java/";
 
-    public static void write(File file) {
+    public static void write(File file,String templatePath) {
 
 
         String name = file.getName();
@@ -36,11 +36,7 @@ public class JavaFileWriter {
         String packageString = packagePath.replaceAll("\\/", ".");
         args.put("\\$\\{package}", packageString);
 
-        String path = JavaFileWriter.class.getClassLoader().getResource("/java.template").getPath();
-        //todo debug remove
-        System.out.println(path);
-
-        File javaTemplate = new File(path);
+        File javaTemplate = new File(templatePath);
         String s = FileUtils.readAFile(javaTemplate);
 
         for (Map.Entry<String, String> entry : args.entrySet()) {

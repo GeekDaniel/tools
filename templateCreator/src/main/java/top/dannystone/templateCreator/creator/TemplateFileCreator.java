@@ -1,6 +1,7 @@
 package top.dannystone.templateCreator.creator;
 
 import top.dannystone.templateCreator.FileUtils;
+import top.dannystone.templateCreator.EnvUtil;
 import top.dannystone.templateCreator.exception.FileCreateException;
 import top.dannystone.templateCreator.fileWriter.JavaFileWriter;
 import top.dannystone.templateCreator.pathInterpreter.Interpreter;
@@ -62,7 +63,7 @@ public class TemplateFileCreator {
 
     private static void writeContent(File file) {
         if (file.getName().endsWith(".java")) {
-            JavaFileWriter.write(file);
+            JavaFileWriter.write(file, EnvUtil.getWriteTemplate("java"));
         }
         //todo maybe can extend to other file format
     }
