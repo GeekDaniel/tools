@@ -27,14 +27,14 @@ public class Parser {
      * @param path
      * @return
      */
-    public static List<Token> tokenAnalyze(String path,String indentation) {
+    public static List<Token> tokenAnalyze(String path, String indentation) {
         List<Token> tokens = new ArrayList<>();
 
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(path))) {
             String s = bufferedReader.readLine();
             while (s != null) {
 
-                Token token = getToken(s,indentation);
+                Token token = getToken(s, indentation);
                 tokens.add(token);
 
                 s = bufferedReader.readLine();
@@ -103,7 +103,7 @@ public class Parser {
     }
 
 
-    private static Token getToken(String s,String indentation) {
+    private static Token getToken(String s, String indentation) {
         //如果该字符串全是空格等，返回null
         if (s.trim().length() == 0) {
             return null;
