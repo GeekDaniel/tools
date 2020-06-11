@@ -36,7 +36,11 @@ public class JavaFileWriter {
         String packageString = packagePath.replaceAll("\\/", ".");
         args.put("\\$\\{package}", packageString);
 
-        File javaTemplate = new File(JavaFileWriter.class.getClassLoader().getResource("./java.template").getPath());
+        String path = JavaFileWriter.class.getClassLoader().getResource("/java.template").getPath();
+        //todo debug remove
+        System.out.println(path);
+
+        File javaTemplate = new File(path);
         String s = FileUtils.readAFile(javaTemplate);
 
         for (Map.Entry<String, String> entry : args.entrySet()) {
