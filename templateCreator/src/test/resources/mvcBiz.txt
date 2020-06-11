@@ -1,0 +1,13 @@
+${bizPackage}
+	dao
+		${biz}Dao.java
+	service
+		impl
+			${biz}ServiceImpl.java
+		${biz}Service.java
+	entity
+		${biz}.java
+	domain
+		${biz}VO.java
+	controller
+		${biz}Controller.java
