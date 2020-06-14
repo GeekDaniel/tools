@@ -1,4 +1,4 @@
-package top.dannystone.templateCreator;
+package top.dannystone.templateCreator.utils;
 
 import top.dannystone.templateCreator.exception.FileIOException;
 import top.dannystone.templateCreator.exception.UncheckedFileNotFoundException;

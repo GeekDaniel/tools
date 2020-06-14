@@ -1,6 +1,6 @@
 package top.dannystone.templateCreator.templateParser;
 
-import top.dannystone.templateCreator.FileUtils;
+import top.dannystone.templateCreator.utils.FileUtils;
 import top.dannystone.templateCreator.exception.TokenAnalyzeException;
 
 import java.io.BufferedReader;

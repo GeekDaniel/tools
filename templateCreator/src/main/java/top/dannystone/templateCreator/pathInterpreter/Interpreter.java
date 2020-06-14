@@ -1,6 +1,6 @@
 package top.dannystone.templateCreator.pathInterpreter;
 
-import top.dannystone.templateCreator.FileUtils;
+import top.dannystone.templateCreator.utils.FileUtils;
 import top.dannystone.templateCreator.templateParser.Token;
 
 import java.util.ArrayList;

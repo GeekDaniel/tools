@@ -1,6 +1,6 @@
-package top.dannystone.templateCreator.fileWriter;
+package top.dannystone.templateCreator.fileWriter.service.impl.ruleWriters;
 
-import top.dannystone.templateCreator.FileUtils;
+import top.dannystone.templateCreator.utils.FileUtils;
 
 import java.io.File;
 import java.util.HashMap;
@@ -14,7 +14,7 @@ import java.util.Map;
  * @creed: keep it simple and stupid !
  * @Time: 2020/6/11 1:19 PM
  */
-public class JavaFileWriter {
+public class ClassWriter {
     private static final String IDEA_JAVA_TEST_PACKAGE_ROOT = "src/test/java/";
     private static final String IDEA_JAVA_PACKAGE_ROOT = "src/main/java/";
 

@@ -2,8 +2,7 @@ package top.dannystone.templateCreator;
 
 import org.junit.Assert;
 import org.junit.Test;
-
-import static org.junit.Assert.*;
+import top.dannystone.templateCreator.utils.FileUtils;
 
 /**
  * Created with IntelliJ IDEA.
