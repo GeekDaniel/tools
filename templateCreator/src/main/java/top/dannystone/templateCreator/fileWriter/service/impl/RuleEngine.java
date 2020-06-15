@@ -28,7 +28,7 @@ public class RuleEngine {
 
     private static final String JAVA_FILE_SUFFIX = "java";
 
-    private static final String ENDS_WITH_KEY = "endsWith";
+    private static final String ENDS_WITH_KEY = "endswith";
 
     private static final int LOWEST_PRIVILEGE = -2;
 
