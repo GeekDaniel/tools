@@ -1,0 +1,5 @@
+${biz}Controller.java=mvcBizController.content
+${biz}Service.java=mvcBizService.content
+${biz}ServiceImpl.java=mvcBizServiceImpl.content
+${biz}Dao.java=mvcBizDao.content
+default=commonJava.content

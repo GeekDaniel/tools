@@ -1,0 +1,6 @@
+package ${package};
+import ${package}.${biz}Service;
+
+public interface ${biz}ServiceImpl implements ${biz}Service{
+
+}
