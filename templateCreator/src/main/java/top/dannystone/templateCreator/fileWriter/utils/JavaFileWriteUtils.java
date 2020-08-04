@@ -6,6 +6,9 @@ import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
 
+import static top.dannystone.templateCreator.constant.IDEAJavaConstant.IDEA_JAVA_PACKAGE_ROOT;
+import static top.dannystone.templateCreator.constant.IDEAJavaConstant.IDEA_JAVA_TEST_PACKAGE_ROOT;
+
 /**
  * Created with IntelliJ IDEA.
  * Description:
@@ -15,9 +18,6 @@ import java.util.Map;
  * @Time: 2020/6/14 9:46 PM
  */
 public class JavaFileWriteUtils {
-
-    private static final String IDEA_JAVA_TEST_PACKAGE_ROOT = "src/test/java/";
-    private static final String IDEA_JAVA_PACKAGE_ROOT = "src/main/java/";
 
     public static void write(File file, String templatePath, Map<String, String> args) {
 

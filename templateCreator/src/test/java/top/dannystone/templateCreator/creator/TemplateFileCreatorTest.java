@@ -24,7 +24,10 @@ public class TemplateFileCreatorTest {
         TemplateFileCreator.create(
                 "/Users/daniel/codes/tools/templateCreator/src/test/java/top/dannystone/templateCreator",
                 this.getClass().getClassLoader().getResource("./mvcBiz.txt").getPath()
+                , this.getClass().getClassLoader().getResource("./mvcBizContent.map").getPath()
                 , params);
+
+
     }
 
 }

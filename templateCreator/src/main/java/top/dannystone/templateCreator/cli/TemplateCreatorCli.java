@@ -26,7 +26,8 @@ public class TemplateCreatorCli {
             errorExit(e.getMessage());
         }
 
-        TemplateFileCreator.create(templateCreateContext.getDestination(), templateCreateContext.getTemplateAbsolutePath(), templateCreateContext.getParams());
+        //todo
+        TemplateFileCreator.create(templateCreateContext.getDestination(), templateCreateContext.getTemplateAbsolutePath(),"", templateCreateContext.getParams());
 
     }
 

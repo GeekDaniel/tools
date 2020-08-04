@@ -1,5 +1,5 @@
 package ${package}
 
-public class ${javaFileName}{
+public class ${className}{
 
 }

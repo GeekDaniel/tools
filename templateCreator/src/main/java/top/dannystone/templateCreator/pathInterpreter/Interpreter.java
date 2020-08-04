@@ -1,5 +1,6 @@
 package top.dannystone.templateCreator.pathInterpreter;
 
+import top.dannystone.templateCreator.fileWriter.utils.CommonUtils;
 import top.dannystone.templateCreator.utils.FileUtils;
 import top.dannystone.templateCreator.templateParser.Token;
 
@@ -66,7 +67,7 @@ public class Interpreter {
     private static List<String> renderParams(List<String> paths, Map<String, String> args) {
         List<String> finalPaths = paths.stream().map(e -> {
             String finalPath = e;
-            finalPath = loopRenderVariable(args, finalPath);
+            finalPath = CommonUtils.loopRenderVariable(args, finalPath);
 
             return finalPath;
         }).collect(Collectors.toList());
@@ -74,14 +75,6 @@ public class Interpreter {
         return finalPaths;
     }
 
-    private static String loopRenderVariable(Map<String, String> args, String path) {
-        for (Map.Entry<String, String> entry : args.entrySet()) {
-            String variable = "\\$\\{" + entry.getKey() + "}";
-            String value = entry.getValue();
-            path = path.replaceAll(variable, value);
-        }
-        return path;
-    }
 
     private static String adjustDestination(String destination) {
         if (destination.endsWith("/")) {

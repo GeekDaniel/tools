@@ -1,5 +1,5 @@
 package ${package};
 
-public interface ${biz}Dao{
+public interface ${className}{
 
 }

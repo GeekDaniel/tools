@@ -1,6 +1,6 @@
 package ${package};
 
-public interface ${biz}Service {
+public interface ${className} {
 
 
 }

@@ -1,2 +1,2 @@
-- cli 无法显示文件后缀名
-- 无法细致区分文件内容 比如 dao 要interface  serviceimpl 要 implements service
+- ~~cli 无法显示文件后缀名~~
+- ~~无法细致区分文件内容 比如 dao 要interface  serviceimpl 要 implements service~~
