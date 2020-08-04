@@ -1,3 +1,5 @@
+package ${package};
+
 public interface ${biz}Dao{
 
 }
