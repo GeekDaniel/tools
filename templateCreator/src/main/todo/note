@@ -1,6 +1,0 @@
-增加了一些约束
-取包名于idea java目录耦合IDEA_JAVA_TEST_PACKAGE_ROOT
-content 与map只能同目录
-增加默认变量 ${className},${package}
-
-
