@@ -1,6 +1,6 @@
 package ${package};
-import ${package}.${biz}Service;
+import ${package}[cd ..].${biz}Service;
 
-public interface ${className} implements ${biz}Service{
+public class ${className} implements ${biz}Service{
 
 }

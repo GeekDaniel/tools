@@ -5,7 +5,10 @@ import top.dannystone.templateCreator.utils.FileUtils;
 import java.io.File;
 import java.util.HashMap;
 import java.util.Map;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
+import static java.util.regex.Pattern.*;
 import static top.dannystone.templateCreator.constant.IDEAJavaConstant.IDEA_JAVA_PACKAGE_ROOT;
 import static top.dannystone.templateCreator.constant.IDEAJavaConstant.IDEA_JAVA_TEST_PACKAGE_ROOT;
 
@@ -31,19 +34,26 @@ public class JavaFileWriteUtils {
             args.put(entry.getKey(), entry.getValue());
         }
 
+        String result = s;
         for (Map.Entry<String, String> entry : args.entrySet()) {
-            s = s.replaceAll(entry.getKey(), entry.getValue());
+            result = CommonUtils.loopRenderVariable(args, s);
         }
 
+        //动作 回退等
+        result = PathOperationUtils.package3DepthCd(result);
+        result = PathOperationUtils.package2DepthCd(result);
+        result = PathOperationUtils.package1DepthCd(result);
+
         //写入内容
-        FileUtils.writeAFile(file, s);
+        FileUtils.writeAFile(file, result);
     }
+
 
     private static Map<String, String> getArgsByJavaFile(File file) {
         Map<String, String> args = new HashMap<>();
 
         String name = file.getName();
-        args.put("\\$\\{className}", name.replaceFirst("\\.java", ""));
+        args.put("className", name.replaceFirst("\\.java", ""));
 
         String absolutePath = file.getAbsolutePath();
         String packagePath = null;
@@ -54,7 +64,7 @@ public class JavaFileWriteUtils {
             packagePath = absolutePath.substring(absolutePath.indexOf(IDEA_JAVA_TEST_PACKAGE_ROOT) + IDEA_JAVA_TEST_PACKAGE_ROOT.length(), absolutePath.length() - name.length() - "/".length());
         }
         String packageString = packagePath.replaceAll("\\/", ".");
-        args.put("\\$\\{package}", packageString);
+        args.put("package", packageString);
         return args;
     }
 
